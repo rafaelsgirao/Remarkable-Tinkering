@@ -4,7 +4,9 @@ from uuid import uuid4
 import tempfile
 import os
 import time
-from shutil import rmtree
+from shutil import rmtree, copyfile
+import paramiko
+
 BASE_PATH = "/root/.local/share/remarkable/xochitl"
 
 
@@ -27,9 +29,11 @@ def get_time():
     return int(round(time.time() * 1000))
 
 
-def init_files(uuid, filename, page_count):
+def init_files(uuid, pdf_path, page_count):
     tempdir = tempfile.mkdtemp()
 
+    filename = os.path.basename(pdf_path)
+    pdf_path = copyfile(pdf_path, os.path.join(tempdir, uuid + ".pdf"))
     #This is wrong
     #files = (".cache", ".highlights", ".textconversion", ".thumbnails")
     #for ext in files:
@@ -76,7 +80,7 @@ def init_files(uuid, filename, page_count):
     #Write (uuid).metadata
     content_path = os.path.join(tempdir, uuid + ".metadata")
     f = open(content_path, "w+")
-    f.seek(0)
+    f.seek(0)   
     f.write(metadata.format(epoch_time=get_time(), file_name=filename))
     f.close()
 
@@ -100,10 +104,27 @@ def init_files(uuid, filename, page_count):
 
     with open(content_path, "w+") as f:
         f.seek(0)
-        for i in range(0, page_count):
+        for _ in range(0, page_count):
             f.write("Blank\n")
 
+    return tempdir
 
+def init_sftp():
+    ssh_client = paramiko.SSHClient()
+    ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    ssh_client.connect(hostname="192.168.1.130", username="root")
+    return ssh_client.open_sftp()
+
+
+def main():
+    pdf_path = sys.argv[1]
+
+    tempdir = init_files(make_uuid(), pdf_path, get_nr_of_pages(pdf_path))
+
+    print(tempdir)
+
+if __name__ == "__main__":
+    main()
 
 #For future reference, this is the content from the site linked at the top
 #Edit: not actually deprecated (they're pretty much the same), I was just sleepy

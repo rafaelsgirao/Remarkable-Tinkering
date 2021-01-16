@@ -1,0 +1,48 @@
+{
+    "converted_pdf_folders": [
+        {
+            "path": "None",
+            "name": "dummy",
+            "parent": "cdi",
+            "uuid": "hi"
+        },
+        {
+            "path": "D:\\MEGA\\__IST\\AL\\",
+            "name": "al",
+            "parent": "root",
+            "uuid": "81bd5d70-e059-4922-877c-a8b7f6f80e15"
+        },
+        {
+            "path": "D:\\MEGA\\__IST\\AL\\Teóricas",
+            "name": "al-teoricas",
+            "parent": "al",
+            "uuid": "433f99ed-34b4-45e2-a003-36e4a3e82f7e"
+        },
+        {
+            "path": "D:\\MEGA\\__IST\\AL\\Fichas de Excs",
+            "name": "al-fichas",
+            "parent": "al",
+            "uuid": "b3d3baa7-aa8f-44da-9c7f-f07651bb503a"
+        },
+        {
+            "path": "D:\\MEGA\\__IST\\AL\\Práticas",
+            "name": "al-praticas",
+            "parent": "al",
+            "uuid": "005c867c-4d3c-4167-8497-1b1a724ea7a6"
+        },
+        {
+            "path": "D:\\MEGA\\__IST\\CDI-I\\Teóricas",
+            "name": "cdi-teoricas",
+            "parent": "cdi",
+            "uuid": "79da672d-f39e-4a0c-a677-26cb4801c19a"
+        },
+        {
+            "path": "D:\\MEGA\\__IST\\CDI-I",
+            "name": "cdi",
+            "parent": "root",
+            "uuid": "70203247-edca-4ba9-962d-87a40af26d66"
+        }
+    ],
+    "normal_pdf_folders": [],
+    "uni_folder_uuid": "52d4f6fb-46f7-4f30-a83c-edf74828f994"
+}

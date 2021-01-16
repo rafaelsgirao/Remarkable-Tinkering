@@ -5,10 +5,21 @@ import tempfile
 import os
 import time
 from shutil import rmtree, copyfile
-import paramiko
+import zipfile
 
 BASE_PATH = "/root/.local/share/remarkable/xochitl"
+PDFCONV_PATH = "D:\\remarkable\\remarkable-layers\\pdf_converter.py"
+#Zip functions adapted from #https://stackoverflow.com/questions/1855095/how-to-create-a-zip-archive-of-a-directory-in-python
 
+def zipdir(path, zipfpath):
+    # zipfpath = path to zip file
+    zipf = zipfile.ZipFile(zipfpath, "w", zipfile.ZIP_DEFLATED)
+    for root, dirs, files in os.walk(path):
+        for file in files:
+            if not file.endswith(".zip"):
+                zipf.write(os.path.join(root, file), os.path.relpath(os.path.join(root, file), os.path.join(path, '..')))
+    zipf.close()
+    return zipfpath
 
 #Based on these instructions: https://www.ucl.ac.uk/~ucecesf/remarkable/#org8c08493
 
@@ -28,55 +39,22 @@ def get_time():
     #In epoch, in milliseconds, for whatever reason
     return int(round(time.time() * 1000))
 
+def convert_pdf(pdf_path):
+    #Static paths are bad :(
+    x = os.system("/mnt/d/git/Remarkable Tinkering/init_pdfconv.sh '{}' '{}'".format(
+        PDFCONV_PATH, pdf_path
+    ))
 
 def init_files(uuid, pdf_path, page_count):
     tempdir = tempfile.mkdtemp()
 
     filename = os.path.basename(pdf_path)
     pdf_path = copyfile(pdf_path, os.path.join(tempdir, uuid + ".pdf"))
-    #This is wrong
-    #files = (".cache", ".highlights", ".textconversion", ".thumbnails")
-    #for ext in files:
-        #fullpath = os.path.join(tempdir, uuid + ext)
-        
-    metadata = """{{    
-    "deleted": false,
-    "lastModified": "{epoch_time}",
-    "lastOpenedPage": 1,
-    "metadatamodified": true,
-    "modified": false,
-    "parent": "ebe93f67-5d7e-4e47-b29a-6b75aff60efb",
-    "pinned": false,
-    "synced": false,
-    "type": "DocumentType",
-    "version": 1,
-    "visibleName": "{file_name}"
-}}
-"""
-    content = """{{
-    "extraMetadata": {{}},
-    "filetype": "pdf",
-    "fontname": "",
-    "lastOpenedPage": 0,
-    "lineHeight": -1,
-    "margins": 100,
-    "orientation": "portrait",
-    "pageCount": {page_count},
-    "pages": {pages},
-    "textScale": 1,
-    "transform": {{
-        "m11": 1,
-        "m12": 0,
-        "m13": 0,
-        "m21": 0,
-        "m22": 1,
-        "m23": 0,
-        "m31": 0,
-        "m32": 0,
-        "m33": 1
-    }}
-}}
-"""
+
+    #Read templates
+    metadata = open(os.path.join("templates", "metadata.txt"), "r").read()
+    content = open(os.path.join("templates", "content.txt"), "r").read()
+
     #Write (uuid).metadata
     content_path = os.path.join(tempdir, uuid + ".metadata")
     f = open(content_path, "w+")
@@ -101,7 +79,6 @@ def init_files(uuid, pdf_path, page_count):
 
     #Write (uuid).pagedata
     content_path = os.path.join(tempdir, uuid + ".pagedata")
-
     with open(content_path, "w+") as f:
         f.seek(0)
         for _ in range(0, page_count):
@@ -109,33 +86,15 @@ def init_files(uuid, pdf_path, page_count):
 
     return tempdir
 
-def init_sftp():
-    ssh_client = paramiko.SSHClient()
-    ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    ssh_client.connect(hostname="192.168.1.130", username="root")
-    return ssh_client.open_sftp()
-
-
 def main():
     pdf_path = sys.argv[1]
+    uuid = make_uuid()  
+    tempdir = init_files(uuid, pdf_path, get_nr_of_pages(pdf_path))
 
-    tempdir = init_files(make_uuid(), pdf_path, get_nr_of_pages(pdf_path))
-
+    zipf = zipdir(tempdir, os.path.join(tempdir, uuid + ".zip"))
     print(tempdir)
+    print(zipf)
 
 if __name__ == "__main__":
     main()
 
-#For future reference, this is the content from the site linked at the top
-#Edit: not actually deprecated (they're pretty much the same), I was just sleepy
-metadata_deprecated = """{{
-    "extraMetadata": {{
-    }},
-    "fileType": "pdf",
-    "fontName": "",
-    "lastOpenedPage": 0,
-    "lineHeight": -1,
-    "margins": 100,
-    "orientation": "portrait",
-    "pageCount":' ${n}',
-"""

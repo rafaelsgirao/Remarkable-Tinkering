@@ -1,0 +1,494 @@
+[
+    {
+        "fname": "teoricas8.pdf",
+        "md5": "",
+        "parent": "al",
+        "uuid": "420a5fcd-f956-4e6e-8a30-fb554dd8c567"
+    },
+    {
+        "fname": "Texto_de_apoio_ALinear_2012.pdf",
+        "md5": "",
+        "parent": "al",
+        "uuid": "5d64b09d-187c-4c5c-8681-fc41232e5422"
+    },
+    {
+        "fname": "1 Aula.pdf",
+        "md5": "",
+        "parent": "al-teoricas",
+        "uuid": "76394cd9-de45-4501-b578-71315769671f"
+    },
+    {
+        "fname": "10 Aula.pdf",
+        "md5": "",
+        "parent": "al-teoricas",
+        "uuid": "4472e0ca-8560-4c15-8911-2eaa7b347aec"
+    },
+    {
+        "fname": "11 Aula.pdf",
+        "md5": "",
+        "parent": "al-teoricas",
+        "uuid": "9c099a9f-5fb3-4dfc-9851-abfec8d89d16"
+    },
+    {
+        "fname": "12 Aula.pdf",
+        "md5": "",
+        "parent": "al-teoricas",
+        "uuid": "8a72d961-afb4-45b6-9d22-28b762167db9"
+    },
+    {
+        "fname": "13 Aula.pdf",
+        "md5": "",
+        "parent": "al-teoricas",
+        "uuid": "9a14468e-4e3e-46fe-81de-9d6a31364244"
+    },
+    {
+        "fname": "14 Aula.pdf",
+        "md5": "",
+        "parent": "al-teoricas",
+        "uuid": "90494182-d88d-46c9-9d0b-ef8310640b81"
+    },
+    {
+        "fname": "15 Aula.pdf",
+        "md5": "",
+        "parent": "al-teoricas",
+        "uuid": "462e4907-aa66-46ad-b860-0a3f3c9d9914"
+    },
+    {
+        "fname": "16 Aula.pdf",
+        "md5": "",
+        "parent": "al-teoricas",
+        "uuid": "da361b04-e0b3-4336-9d46-4cd5c414ea0a"
+    },
+    {
+        "fname": "17 Aula.pdf",
+        "md5": "",
+        "parent": "al-teoricas",
+        "uuid": "7c0a13e0-99cd-4fa4-b6e3-66bc0711efc0"
+    },
+    {
+        "fname": "18 Aula.pdf",
+        "md5": "",
+        "parent": "al-teoricas",
+        "uuid": "c944fdf3-bf09-4c63-8bbe-b56214ad2441"
+    },
+    {
+        "fname": "19 Aula.pdf",
+        "md5": "",
+        "parent": "al-teoricas",
+        "uuid": "10618c91-1385-43d9-8288-16f6eff47094"
+    },
+    {
+        "fname": "2 Aula.pdf",
+        "md5": "",
+        "parent": "al-teoricas",
+        "uuid": "083a5e6b-3da0-4b79-ab12-7c4696279dbd"
+    },
+    {
+        "fname": "20 Aula.pdf",
+        "md5": "",
+        "parent": "al-teoricas",
+        "uuid": "456d595c-8a57-4516-861b-02532507f630"
+    },
+    {
+        "fname": "21 Aula.pdf",
+        "md5": "",
+        "parent": "al-teoricas",
+        "uuid": "d316ca7d-471b-4e4d-b279-dec42d9f6e8b"
+    },
+    {
+        "fname": "22 Aula.pdf",
+        "md5": "",
+        "parent": "al-teoricas",
+        "uuid": "4a92b15e-ea19-4784-9492-752292650748"
+    },
+    {
+        "fname": "23 Aula.pdf",
+        "md5": "",
+        "parent": "al-teoricas",
+        "uuid": "7354fc29-8559-4e09-894a-6330f090f0f5"
+    },
+    {
+        "fname": "24 Aula.pdf",
+        "md5": "",
+        "parent": "al-teoricas",
+        "uuid": "a4a96112-4dfb-45b1-ba4b-d9be1994731c"
+    },
+    {
+        "fname": "3 Aula.pdf",
+        "md5": "",
+        "parent": "al-teoricas",
+        "uuid": "cebd4b91-73a4-43cc-b72a-36cb7d17259d"
+    },
+    {
+        "fname": "4 Aula.pdf",
+        "md5": "",
+        "parent": "al-teoricas",
+        "uuid": "955d97d4-0730-446d-bba9-b2f9a9b1ae29"
+    },
+    {
+        "fname": "5 Aula.pdf",
+        "md5": "",
+        "parent": "al-teoricas",
+        "uuid": "5f30c113-ef61-41a2-8bf8-c1b6a4842f26"
+    },
+    {
+        "fname": "6 Aula.pdf",
+        "md5": "",
+        "parent": "al-teoricas",
+        "uuid": "cdb3385b-cf68-4f94-96ff-a6507ef454c4"
+    },
+    {
+        "fname": "7 Aula.pdf",
+        "md5": "",
+        "parent": "al-teoricas",
+        "uuid": "763de498-53f7-4625-ae15-18580dce9871"
+    },
+    {
+        "fname": "8 Aula.pdf",
+        "md5": "",
+        "parent": "al-teoricas",
+        "uuid": "455fa438-33a0-4efa-8c4f-81bdcad04634"
+    },
+    {
+        "fname": "9 Aula.pdf",
+        "md5": "",
+        "parent": "al-teoricas",
+        "uuid": "402408e5-274f-4be6-8051-0b89ce2e19c5"
+    },
+    {
+        "fname": "Combinação das Teóricas de AL.pdf",
+        "md5": "",
+        "parent": "al-teoricas",
+        "uuid": "812f166f-a48b-4d4b-8f5a-fcf71120faa9"
+    },
+    {
+        "fname": "FICHA 1.pdf",
+        "md5": "",
+        "parent": "al-fichas",
+        "uuid": "1681a09c-f53d-4e4a-bbf2-e9a0aacfbaca"
+    },
+    {
+        "fname": "FICHA 2.pdf",
+        "md5": "",
+        "parent": "al-fichas",
+        "uuid": "f9202975-8016-4989-a55b-832a8c202101"
+    },
+    {
+        "fname": "FICHA 3.pdf",
+        "md5": "",
+        "parent": "al-fichas",
+        "uuid": "5a15f618-40aa-421b-b1cb-0acc684d5630"
+    },
+    {
+        "fname": "FICHA 4.pdf",
+        "md5": "",
+        "parent": "al-fichas",
+        "uuid": "0c69324e-dcaf-4cc4-b877-3feff28b1e20"
+    },
+    {
+        "fname": "2 Aula Pratica.pdf",
+        "md5": "",
+        "parent": "al-praticas",
+        "uuid": "f302b5b5-8f0f-4d5d-8dea-5d7267cc32e5"
+    },
+    {
+        "fname": "3 Aula Pratica.pdf",
+        "md5": "",
+        "parent": "al-praticas",
+        "uuid": "389eb112-d175-4963-8efc-a01d4a6f43e9"
+    },
+    {
+        "fname": "4 Aula Pratica.pdf",
+        "md5": "",
+        "parent": "al-praticas",
+        "uuid": "7fa887e2-c05e-427f-9ffc-e444b4a1b1e7"
+    },
+    {
+        "fname": "5 Aula Pratica.pdf",
+        "md5": "",
+        "parent": "al-praticas",
+        "uuid": "8dd7da77-6b13-4674-9a58-452d5ad9345e"
+    },
+    {
+        "fname": "6 Aula Pratica.pdf",
+        "md5": "",
+        "parent": "al-praticas",
+        "uuid": "1bc33330-24a5-4e0a-b0b5-2b3b47f3b7c5"
+    },
+    {
+        "fname": "7 Aula Pratica.pdf",
+        "md5": "",
+        "parent": "al-praticas",
+        "uuid": "c1456d39-3f8b-47b9-a2b3-746bfdc49bda"
+    },
+    {
+        "fname": "8 Aula Practica.pdf",
+        "md5": "",
+        "parent": "al-praticas",
+        "uuid": "89b03e48-b72e-4efa-9655-c36bc9236546"
+    },
+    {
+        "fname": "Aula01.pdf",
+        "md5": "",
+        "parent": "cdi-teoricas",
+        "uuid": "e6730f28-04cc-4a16-a0eb-724911493b39"
+    },
+    {
+        "fname": "Aula02.pdf",
+        "md5": "",
+        "parent": "cdi-teoricas",
+        "uuid": "733a698b-151b-4120-846c-6492b33fe4dd"
+    },
+    {
+        "fname": "Aula03.pdf",
+        "md5": "",
+        "parent": "cdi-teoricas",
+        "uuid": "9b3baafb-cf09-45c8-8d40-3bd0666bcd77"
+    },
+    {
+        "fname": "Aula04.pdf",
+        "md5": "",
+        "parent": "cdi-teoricas",
+        "uuid": "0ee20c1c-6c6f-44da-bdda-95234262eea9"
+    },
+    {
+        "fname": "Aula05.pdf",
+        "md5": "",
+        "parent": "cdi-teoricas",
+        "uuid": "b8372cc4-b1c2-41e3-9a21-66a9f8003a92"
+    },
+    {
+        "fname": "Aula06.pdf",
+        "md5": "",
+        "parent": "cdi-teoricas",
+        "uuid": "33e54719-d0fb-4807-8681-8916d26d4a11"
+    },
+    {
+        "fname": "Aula07.pdf",
+        "md5": "",
+        "parent": "cdi-teoricas",
+        "uuid": "44400d11-beb8-42a3-95ce-6d989aad13bb"
+    },
+    {
+        "fname": "Aula08.pdf",
+        "md5": "",
+        "parent": "cdi-teoricas",
+        "uuid": "3d6a2695-4a38-4bd9-990d-efbfeda44c35"
+    },
+    {
+        "fname": "Aula09.pdf",
+        "md5": "",
+        "parent": "cdi-teoricas",
+        "uuid": "d0f9bd21-94d7-406a-b2c4-99334dd4915f"
+    },
+    {
+        "fname": "Aula10.pdf",
+        "md5": "",
+        "parent": "cdi-teoricas",
+        "uuid": "6ecb6d58-3603-48cc-9947-73a89784beb6"
+    },
+    {
+        "fname": "Aula11.pdf",
+        "md5": "",
+        "parent": "cdi-teoricas",
+        "uuid": "4bcf2cbe-11bb-43a7-b69a-66e0450bacb4"
+    },
+    {
+        "fname": "Aula12.pdf",
+        "md5": "",
+        "parent": "cdi-teoricas",
+        "uuid": "875c9243-fbfd-4608-9c31-1ee51e6c8db8"
+    },
+    {
+        "fname": "Aula13.pdf",
+        "md5": "",
+        "parent": "cdi-teoricas",
+        "uuid": "e394d382-2ac0-41f7-9b52-11e9060f3325"
+    },
+    {
+        "fname": "Aula14.pdf",
+        "md5": "",
+        "parent": "cdi-teoricas",
+        "uuid": "76cdf920-6997-4527-ae22-2040fc465601"
+    },
+    {
+        "fname": "Aula15.pdf",
+        "md5": "",
+        "parent": "cdi-teoricas",
+        "uuid": "daca60fd-cfca-4235-9a33-071d7ca371b6"
+    },
+    {
+        "fname": "Aula16.pdf",
+        "md5": "",
+        "parent": "cdi-teoricas",
+        "uuid": "5af5edfd-5970-4650-a71c-6fccafe2a21d"
+    },
+    {
+        "fname": "Aula17.pdf",
+        "md5": "",
+        "parent": "cdi-teoricas",
+        "uuid": "e519cf6b-067a-4401-a324-f651ff0f972f"
+    },
+    {
+        "fname": "Aula18.pdf",
+        "md5": "",
+        "parent": "cdi-teoricas",
+        "uuid": "1e335db0-fb63-4004-9488-0a1d34c7d25b"
+    },
+    {
+        "fname": "Aula19.pdf",
+        "md5": "",
+        "parent": "cdi-teoricas",
+        "uuid": "a22fcc83-dc98-452f-a13c-a2163932ea36"
+    },
+    {
+        "fname": "Aula20.pdf",
+        "md5": "",
+        "parent": "cdi-teoricas",
+        "uuid": "46900494-e852-4dac-8e58-a422b9a2ec68"
+    },
+    {
+        "fname": "Aula21.pdf",
+        "md5": "",
+        "parent": "cdi-teoricas",
+        "uuid": "b38e0c28-3332-4499-aa7e-25fd178a4f93"
+    },
+    {
+        "fname": "Aula22.pdf",
+        "md5": "",
+        "parent": "cdi-teoricas",
+        "uuid": "c77b179d-6962-4cfd-b0e8-a2d0d1370be5"
+    },
+    {
+        "fname": "Aula23.pdf",
+        "md5": "",
+        "parent": "cdi-teoricas",
+        "uuid": "d4c36dd4-40ac-4ce7-9715-17b326c1dd73"
+    },
+    {
+        "fname": "Aula24.pdf",
+        "md5": "",
+        "parent": "cdi-teoricas",
+        "uuid": "0f6c01c2-8883-4fe5-9ed3-777f817437a3"
+    },
+    {
+        "fname": "Aula25.pdf",
+        "md5": "",
+        "parent": "cdi-teoricas",
+        "uuid": "21d1bf45-c100-4d84-8f3d-8806874f2feb"
+    },
+    {
+        "fname": "Aula26.pdf",
+        "md5": "",
+        "parent": "cdi-teoricas",
+        "uuid": "b7fa1d82-2f2e-4fb7-97c2-83aa380bd020"
+    },
+    {
+        "fname": "Aula27.pdf",
+        "md5": "",
+        "parent": "cdi-teoricas",
+        "uuid": "98302e1a-ce9e-45d6-945f-18db3c825a99"
+    },
+    {
+        "fname": "Aula28.pdf",
+        "md5": "",
+        "parent": "cdi-teoricas",
+        "uuid": "a7624126-5349-4f07-82af-c0db32030623"
+    },
+    {
+        "fname": "ApendiceTrigonometria.pdf",
+        "md5": "",
+        "parent": "cdi",
+        "uuid": "7d0a75b5-8a76-4de0-a03b-3c698f267865"
+    },
+    {
+        "fname": "Aula P1.pdf",
+        "md5": "",
+        "parent": "cdi",
+        "uuid": "60113f89-33bd-40ab-bae4-7881a412a5d6"
+    },
+    {
+        "fname": "Aula P10.pdf",
+        "md5": "",
+        "parent": "cdi",
+        "uuid": "ffff3a90-454e-4b8d-ba6c-fe031d8aa60d"
+    },
+    {
+        "fname": "Aula P2.pdf",
+        "md5": "",
+        "parent": "cdi",
+        "uuid": "5a0bcd0e-39f9-4471-91d0-b05eb3f249ce"
+    },
+    {
+        "fname": "Aula P3.pdf",
+        "md5": "",
+        "parent": "cdi",
+        "uuid": "9654b67c-3a53-409a-9f02-b1eb47d1f361"
+    },
+    {
+        "fname": "Aula P6.pdf",
+        "md5": "",
+        "parent": "cdi",
+        "uuid": "9fd60642-fd34-447a-bed1-cd4eab7d92bf"
+    },
+    {
+        "fname": "Aula P7.pdf",
+        "md5": "",
+        "parent": "cdi",
+        "uuid": "bbb8b29f-7cd5-4cd0-9ca0-5180f09eff1b"
+    },
+    {
+        "fname": "Aula P9.pp.pdf",
+        "md5": "",
+        "parent": "cdi",
+        "uuid": "979c3079-3c35-45d6-95d6-dc5c455a3289"
+    },
+    {
+        "fname": "aula7.pdf",
+        "md5": "",
+        "parent": "cdi",
+        "uuid": "c2606515-1193-44e1-b99a-7e5e31bd2263"
+    },
+    {
+        "fname": "Aula_12_-_resumo.pdf",
+        "md5": "",
+        "parent": "cdi",
+        "uuid": "2da92a43-0f43-4e54-b4a5-cb89722b80d2"
+    },
+    {
+        "fname": "GrafT2.pdf",
+        "md5": "",
+        "parent": "cdi",
+        "uuid": "0457a483-536d-482d-9797-df9a240d467c"
+    },
+    {
+        "fname": "PautaT2 (1).pdf",
+        "md5": "",
+        "parent": "cdi",
+        "uuid": "a09e6e3e-19b6-4425-9c39-4af4cbe55330"
+    },
+    {
+        "fname": "PautaT2.pdf",
+        "md5": "",
+        "parent": "cdi",
+        "uuid": "72f7ac61-9614-47af-80df-5f1315ad4828"
+    },
+    {
+        "fname": "Resumo CDI by João Rocha.pdf",
+        "md5": "",
+        "parent": "cdi",
+        "uuid": "b5e0a29d-5fc9-47ed-9039-4c5a8238daaf"
+    },
+    {
+        "fname": "Teóricas CDI Até Aula 18.pdf",
+        "md5": "",
+        "parent": "cdi",
+        "uuid": "57f7dcc0-5537-41fb-b041-1cfafa65cf69"
+    },
+    {
+        "fname": "Tom M. Apostol - Calculus, Volume I_ One-Variable Calculus, with an Introduction to Linear Algebra Vol. 1(1967, John Wiley & Sons) - libgen.lc.pdf",
+        "md5": "",
+        "parent": "cdi",
+        "uuid": "cec19351-c1ce-410e-a8ad-eab4cc0df0aa"
+    }
+]

@@ -3,10 +3,10 @@ import os
 import hashlib
 from pathlib import Path
 from pdf2rm import make_uuid
-files = [ {"fpath": ".\\teoricas8.pdf",\
-     "md5":"",\
-         "parent": "al", "uuid":"708266ca-5762-4ff0-9c0d-4ee754a9ee66"}
-]
+from tempfile import mkdtemp
+
+TEMP_DIR = mkdtemp()
+
 
 def load_dirs():
     if not os.path.exists("dirs.json"):
@@ -52,11 +52,8 @@ def init_file_db(dirs_conf):
         json.dump(file_list, files_cfg, ensure_ascii=False, indent=4)
     return file_list
             
-
-def load_file_db():
-    if not os.path.exists("files.json"):
-        print("files.json doesn't exist - creating.")
-
+def process_files():
+    #Process normal PDF folders first
 
 def main():
     return

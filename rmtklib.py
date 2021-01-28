@@ -1,11 +1,12 @@
+#Python module with useful libraries
+import time
+from uuid import uuid4
 from PyPDF2 import PdfFileReader
 import sys
 import tempfile
 import os
 from shutil import rmtree, copyfile
-import zipfile
-
-from rmtklib import get_time, make_uuid
+#import zipfile
 
 #Based on these awesome instructions: https://www.ucl.ac.uk/~ucecesf/remarkable/#org8c08493
 
@@ -75,6 +76,13 @@ class PDFDocument:
         self.make_pagedata()
         self.make_metadata()
 
+def get_time():
+    #In epoch, in milliseconds, for whatever reason
+    return int(round(time.time() * 1000))
+
+def make_uuid():
+    return str(uuid4())
+
 
 
 #Class to handle PDFs that are to be converted by remarkable-layers' pdf_converter.py
@@ -84,15 +92,15 @@ class ConvertedDocument:
         return
 
 #Might remove later
-def zipdir(path, zipfpath):
+#def zipdir(path, zipfpath):
     # zipfpath = path to zip file
-    zipf = zipfile.ZipFile(zipfpath, "w", zipfile.ZIP_DEFLATED)
-    for root, _, files in os.walk(path):
-        for file in files:
-            if not file.endswith(".zip"):
-                zipf.write(os.path.join(root, file), os.path.relpath(os.path.join(root, file), os.path.join(path, '..')))
-    zipf.close()
-    return zipfpath
+#    zipf = zipfile.ZipFile(zipfpath, "w", zipfile.ZIP_DEFLATED)
+#    for root, _, files in os.walk(path):
+#        for file in files:
+#            if not file.endswith(".zip"):
+#                zipf.write(os.path.join(root, file), os.path.relpath(os.path.join(root, file), os.path.join(path, '..')))
+#    zipf.close()
+#    return zipfpath
 
 
 
@@ -100,9 +108,9 @@ def zipdir(path, zipfpath):
 
 
 
-def init_files(uuid, pdf_path, page_count):
-    tempdir = tempfile.mkdtemp()
-    return tempdir
+#def init_files(uuid, pdf_path, page_count):
+#    tempdir = tempfile.mkdtemp()
+#    return tempdir
 
 #def main():
     #pdf_path = sys.argv[1]

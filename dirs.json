@@ -31,15 +31,27 @@
             "uuid": "005c867c-4d3c-4167-8497-1b1a724ea7a6"
         },
         {
+            "path": "D:\\MEGA\\__IST\\CDI-I",
+            "name": "cdi",
+            "parent": "root",
+            "uuid": "4f088772-7008-4679-8a28-07525d82ecb8"
+        }
+        {
             "path": "D:\\MEGA\\__IST\\CDI-I\\Teóricas",
             "name": "cdi-teoricas",
             "parent": "cdi",
             "uuid": "79da672d-f39e-4a0c-a677-26cb4801c19a"
         },
         {
-            "path": "D:\\MEGA\\__IST\\CDI-I",
-            "name": "cdi",
-            "parent": "root",
+            "path": "D:\\MEGA\\__IST\\CDI-I\\Práticas",
+            "name": "cdi-praticas",
+            "parent": "cdi",
+            "uuid": "1f308206-8a50-4922-9a5e-8c0ce993b385"
+        }
+        {
+            "path": "D:\\MEGA\\__IST\\CDI-I\\Exercícios",
+            "name": "cdi-exercicios",
+            "parent": "cdi",
             "uuid": "70203247-edca-4ba9-962d-87a40af26d66"
         }
     ],

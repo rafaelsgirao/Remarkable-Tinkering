@@ -2,11 +2,10 @@ import json
 import os
 import hashlib
 from pathlib import Path
-from pdf2rm import make_uuid
+from rmtklib import *
 from tempfile import mkdtemp
 
 TEMP_DIR = mkdtemp()
-
 
 def load_dirs():
     if not os.path.exists("dirs.json"):
@@ -21,14 +20,6 @@ def load_dirs():
     else:
         with open("dirs.json", "r+", encoding="utf-8") as f:
             return json.load(f)
-
-#From https://stackoverflow.com/questions/3431825/generating-an-md5-checksum-of-a-file
-def md5(fname):
-    hash_md5 = hashlib.md5()
-    with open(fname, "rb") as f:
-        for chunk in iter(lambda: f.read(4096), b""):
-            hash_md5.update(chunk)
-    return hash_md5.hexdigest()
 
 def init_file_db(dirs_conf):
     file_list = []
@@ -52,7 +43,8 @@ def init_file_db(dirs_conf):
         json.dump(file_list, files_cfg, ensure_ascii=False, indent=4)
     return file_list
             
-def process_files():
+def process_files(file_list):
+    return
     #Process normal PDF folders first
 
 def main():

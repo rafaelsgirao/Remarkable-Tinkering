@@ -5,16 +5,23 @@ from PyPDF2 import PdfFileReader
 import sys
 import tempfile
 import os
-from shutil import rmtree, copyfile
+from shutil import rmtree
 import hashlib
 import zipfile
-import remarkable-layers.pdf_converter
+import remarkable_layers.pdf_converter as pdfconv
+import remarkable_layers.rmlines as rmlines
+from pathlib import Path
+import json
+
+import logging
+
+#nOTE TO FUTURE SELF: don't forget to  export PYTHONPATH="$PWD/remarkable_layers/"
+
+logger = logging.getLogger(__name__)
 
 #Based on these awesome instructions: https://www.ucl.ac.uk/~ucecesf/remarkable/#org8c08493
 
 BASE_PATH = "/root/.local/share/remarkable/xochitl"
-PDFCONV_PATH = "D:\\remarkable\\remarkable-layers\\pdf_converter.py"
-
 
 #Zip functions adapted from #https://stackoverflow.com/questions/1855095/how-to-create-a-zip-archive-of-a-directory-in-python
 
@@ -28,15 +35,19 @@ class PDFDocument:
     in the tablet's root folder
 """
 
-    def __init__(self, file, folder, parent="None", convert=False):
+    def __init__(self, file, folder, parent="None", convert=False, uuid=None):
         self.filepath = file
         self.parent = parent
         self.filename = os.path.basename(file)
-        self.uuid = make_uuid()
+        if uuid:
+            self.uuid = uuid
+        else:
+            self.uuid = make_uuid()
         self.folder = folder 
         self.page_count = self.get_pagecount()
         self.parent = parent
-
+        self.convert = convert
+        
     def get_pagecount(self):
         with open(self.filepath, "rb") as pdf_file:
             pdf_reader = PdfFileReader(pdf_file)
@@ -51,15 +62,52 @@ class PDFDocument:
                 f.write("Blank\n")
                 
     def make_metadata(self): 
-        with open(os.path.join("templates", "template.metadata"), "r") as template_file:
-            template = template_file.read()
+        metadata = {
+            "deleted": False,
+            "lastModified": get_time(),
+            "lastOpenedPage": 1,
+            "metadatamodified": True,
+            "modified": False,
+            "parent": self.parent,
+            "pinned": False,
+            "synced": False,
+            "type": "DocumentType",
+            "version": 1,
+            "visibleName": self.filename
+        }
+ #       with open(os.path.join("templates", "template.metadata"), "r") as template_file:
+ #           template = template_file.read()
         file_path = os.path.join(self.folder, self.uuid + ".metadata")
         with open(file_path, "w+") as f:
-            f.write(template.format(epoch_time=get_time(), file_name=self.filename, parent_folder=self.parent))
+            #f.write(template.format(epoch_time=get_time(), file_name=self.filename, parent_folder=self.parent))
+            json.dump(metadata, f, indent=4, ensure_ascii=False)
 
     def make_content(self):
-        with open(os.path.join("templates", "pdf-template.content"), "r") as template_file:
-            template = template_file.read()
+        pdf_content = {
+            "extraMetadata": {},
+            "filetype": "pdf",
+            "fontname": "",
+            "lastOpenedPage": 0,
+            "lineHeight": -1,
+            "margins": 100,
+            "orientation": "portrait",
+            "pageCount": self.page_count,
+            "pages": {},
+            "textScale": 1,
+            "transform": {
+                "m11": 1,
+                "m12": 0,
+                "m13": 0,
+                "m21": 0,
+                "m22": 1,
+                "m23": 0,
+                "m31": 0,
+                "m32": 0,
+                "m33": 1
+            }
+        }
+        #with open(os.path.join("templates", "pdf-template.content"), "r") as template_file:
+        #    template = template_file.read()
 
         #Generate a json list with a random uuid for each PDF page
         pages = "[\n"
@@ -67,40 +115,60 @@ class PDFDocument:
             pages = pages + " " * 8 + '"' + make_uuid() + '",\n'
         pages = pages[:-2] + "\n    " + "]"
 
+        pdf_content["pages"] = pages
         file_path = os.path.join(self.folder, self.uuid + ".content")
         with open(file_path, "w+") as f:
-            f.write(template.format(page_count=self.page_count, pages=pages))
+            #f.write(template.format(page_count=self.page_count, pages=pages))
+            json.dump(pdf_content, f, indent=4, ensure_ascii=False)
 
 
     def copy_pdf(self):
-        copyfile(self.filepath, os.path.join(self.folder, self.uuid + ".pdf"))
+        os.symlink(self.filepath, os.path.join(self.folder, self.uuid + ".pdf"))
+    #def copy_pdf(self):
+    #    copyfile(self.filepath, os.path.join(self.folder, self.uuid + ".pdf"))
     
 
     #Function that triggers all other functions in one call
     def make_all(self):
-        self.make_content()
-        self.copy_pdf()
-        self.make_pagedata()
-        self.make_metadata()
+        if self.convert:
+            self.convert_pdf()
+        else:
+            self.make_content()
+            self.copy_pdf()
+            self.make_pagedata()
+            self.make_metadata()
+        print("done")
     
     #This works! (after a lot of hacky edits to the converter script and rmapy :|)
+    #Edit: nope, rewrite time
     def convert_pdf(self):
-        os.system("wsl -e ./init_pdfconv.sh {} {} {} {} {}".format(PDFCONV_PATH, self.filepath, self.folder, self.uuid, self.parent))
-        zf = os.path.join(self.folder, self.uuid + ".zip")
-        if not os.path.isfile(zf):
-            raise ValueError("I don't know what error to raise, but .zip file does not exist. Aborting.")
-        return zf
+        pdf_input = Path(self.filepath)
+        svg_out_dir = Path(
+            os.path.join(os.path.dirname(self.filepath), ".pdf_converter",
+                os.path.basename(self.filepath))
+        ).with_suffix("")
+        svg_out_dir.mkdir(parents=True, exist_ok=True)
+
+        for pn in range(1, self.page_count + 1):
+            pdfconv.extract_svg_page(
+                orig_pdf=self.filepath,
+                page_no=pn,
+                out_dir=svg_out_dir,
+                overwrite=False,
+            )
+        pdfconv.generate_rmlines_and_upload(svg_out_dir, os.path.join(self.folder, self.uuid + ".zip"), exclude_grid_layers=False)
 
     def unpack_converted_pdf(self):
         return
         #with zipfile.ZipFile((os.path.join(folder, uuid + ".zip")) as f:
         #    if not zipfile.is_zipfile(f):
         #        raise ValueError("I don't know what error to raise, but this is not a valid ZIP file!")
-            
+    
 
 
 class RMFolder:
-    def __init__(self, uuid=None, parent=None):
+    def __init__(self, name, folder, uuid=None, parent=None):
+
         if uuid:
             self.uuid = uuid
         else:
@@ -109,8 +177,27 @@ class RMFolder:
             self.parent = parent
         else:
             self.parent = ""
-    
 
+        self.name = name
+        self.folder = folder
+        
+        self.template = {
+            "deleted": False,
+            "lastModified": get_time(),
+            "metadatamodified": False,
+            "modified": False,
+            "parent": self.parent,
+            "pinned": False,
+            "synced": False,
+            "type": "CollectionType",
+            "version": 2,
+            "visibleName": name
+        }
+
+    def dump(self):
+        file_path = os.path.join(self.folder, self.uuid + ".metadata")
+        with open(file_path, "w+") as f:
+            json.dump(self.template, f, indent=4, ensure_ascii=False)
 
 #Class to handle PDFs that are to be converted by remarkable-layers' pdf_converter.py
 #Fortunately that script generates all the necessary files for us
